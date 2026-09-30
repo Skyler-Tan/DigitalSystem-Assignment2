@@ -4,6 +4,10 @@
 #include <string>
 using namespace std;
 
+void clearScreen();
+void exitScreen();
+int titleScreen(int choice);
+
 struct Movie {
     string title;
     string genre;
@@ -40,31 +44,55 @@ int main() {
 
     vector<Movie> movies = loadMovies("movies.txt");
 
-    cout << "\nWelcome to the Netflix Movie Selector!\n";
-    cout << "\nPlease select a searching option:\n";
-    cout << "1. Search movie name\n";
-    cout << "2. Search by genre\n";
-    cout << "3. Exit\n";
-    cout << "\nEnter your choice: ";
-    cin >> choice;
-    
-    if (choice == 1) {
-        
+    do {
+        clearScreen();
+        choice =titleScreen(choice);
 
+        //search movie name
+        if (choice == 1) {
+            cout << "\n\nchoose 1 successful.\n";
+            cin.get();
+            cout << "Press enter to continue...";
+            cin.ignore(); // Clear the input buffer
+            
 
-    } else if (choice == 2) {
-        
+        //search by genre
+        } else if (choice == 2) {
+            cout << "\n\nchoose 2 successful.\n"; 
+            cin.get();
+            cout << "Press enter to continue...";
+            cin.ignore(); 
+            
+        //exit
+        } else if (choice == 3) {
+            exitScreen();
 
-
-    } else if (choice == 3) {
-
-        cout << "Exiting the program. Goodbye!\n";
-
-    } else {
-
-        cout << "Invalid choice. Please try again.\n";
-
-    }
-
+        //error handling for invalid input
+        } else {
+            cout << "Invalid choice. Please try again.\n";
+        }
+    }while (choice != 3);
     return 0;
+}
+
+// \033[2J clears the screen, \033[H moves the cursor to the top-left (1,1)
+void clearScreen() {
+    cout << "\033[2J\033[H";
+}
+
+int titleScreen(int choice) {
+    clearScreen();
+    cout << "\n\t<================     Welcome to the Netflix Movie Selector!     ================>\n";
+    cout << "\n\t\tPlease select a searching option:\n";
+    cout << "\n\t\t\t1. \tSearch movie name\n";
+    cout << "\t\t\t2. \tSearch by genre\n";
+    cout << "\t\t\t3. \tExit\n";
+    cout << "\n\tEnter your choice: ";
+    cin >> choice;
+    return choice;
+}
+void exitScreen() {
+    clearScreen();
+    cout << "\n\t<================     Thank you for using the Netflix Movie Selector!     ================>\n";
+    cout << "\n\t\t\t\tGoodbye!\n\n\n";
 }
