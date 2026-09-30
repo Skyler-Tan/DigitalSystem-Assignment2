@@ -1,0 +1,100 @@
+Bird Box|Thriller
+Extraction|Action
+Extraction 2|Action
+The Irishman|Crime
+Roma|Drama
+Marriage Story|Drama
+The Trial of the Chicago 7|Drama
+Glass Onion|Mystery
+Red Notice|Action
+Don't Look Up|Comedy
+The Gray Man|Action
+6 Underground|Action
+Triple Frontier|Action
+The Old Guard|Action
+Enola Holmes|Mystery
+Enola Holmes 2|Mystery
+To All the Boys I've Loved Before|Romance
+Set It Up|Romance
+The Kissing Booth|Romance
+Always Be My Maybe|Romance
+Klaus|Animation
+The Mitchells vs. the Machines|Animation
+I Lost My Body|Animation
+Guillermo del Toro's Pinocchio|Animation
+Wendell & Wild|Animation
+The Sea Beast|Animation
+Over the Moon|Animation
+Back to the Outback|Animation
+Vivo|Animation
+Nimona|Animation
+Leo|Animation
+Bright|Fantasy
+Army of the Dead|Horror
+Army of Thieves|Heist
+Okja|Adventure
+Mudbound|Drama
+The Power of the Dog|Western
+All Quiet on the Western Front|War
+The Two Popes|Drama
+Dolemite Is My Name|Comedy
+Ma Rainey's Black Bottom|Drama
+Da 5 Bloods|War
+Beasts of No Nation|War
+Hustle|Sports
+Spenser Confidential|Action
+Project Power|Sci-Fi
+Kate|Action
+Thunder Force|Comedy
+Murder Mystery|Comedy
+Murder Mystery 2|Comedy
+The Adam Project|Sci-Fi
+Spiderhead|Sci-Fi
+The Midnight Sky|Sci-Fi
+I'm Thinking of Ending Things|Thriller
+Apostle|Horror
+Hush|Horror
+Gerald's Game|Horror
+1922|Horror
+Fear Street Part One: 1994|Horror
+Fear Street Part Two: 1978|Horror
+Fear Street Part Three: 1666|Horror
+The Babysitter|Horror
+Sierra Burgess Is a Loser|Romance
+Dumplin'|Comedy
+Someone Great|Romance
+The Half of It|Romance
+Tall Girl|Comedy
+Moxie|Comedy
+Lift|Heist
+Rebel Moon - Part One: A Child of Fire|Sci-Fi
+Rebel Moon - Part Two: The Scargiver|Sci-Fi
+Damsel|Fantasy
+Atlas|Sci-Fi
+Carry-On|Thriller
+Spaceman|Sci-Fi
+Society of the Snow|Drama
+Maestro|Drama
+Rustin|Drama
+Nyad|Biography
+May December|Drama
+Passing|Drama
+The Harder They Fall|Western
+tick, tick... BOOM!|Musical
+The Prom|Musical
+The Christmas Chronicles|Family
+Jingle Jangle: A Christmas Journey|Musical
+A Christmas Prince|Romance
+The Princess Switch|Romance
+Windfall|Thriller
+Rebel Ridge|Action
+Beverly Hills Cop: Axel F|Action
+Mank|Drama
+The Killer|Thriller
+Heart of Stone|Action
+Purple Hearts|Romance
+Bird Box Barcelona|Thriller
+The Wonder|Drama
+Blonde|Drama
+Athena|Action
+The Electric State|Sci-Fi

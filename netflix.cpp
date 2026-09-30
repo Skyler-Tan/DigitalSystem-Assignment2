@@ -30,7 +30,7 @@ vector<Movie> loadMovies(const string& filename) {
         movies.push_back({line.substr(0, sep), line.substr(sep + 1)});
 
     }
-    
+
     return movies;
 }
 
@@ -40,12 +40,12 @@ int main() {
 
     vector<Movie> movies = loadMovies("movies.txt");
 
-    cout << "Welcome to the Netflix Movie Selector!\n";
-    cout << "Please select a searching option:\n";
+    cout << "\nWelcome to the Netflix Movie Selector!\n";
+    cout << "\nPlease select a searching option:\n";
     cout << "1. Search movie name\n";
     cout << "2. Search by genre\n";
     cout << "3. Exit\n";
-    cout << "Enter your choice: ";
+    cout << "\nEnter your choice: ";
     cin >> choice;
     
     if (choice == 1) {
