@@ -10,6 +10,9 @@ using namespace std;
 struct Movie {
     string title;
     string genre;
+    int year;
+    int duration;
+    string synopsis;
 };
 void clearScreen();
 void exitScreen();
@@ -31,28 +34,47 @@ string toLowerCase(const string& text) {
 vector<Movie> loadMovies(const string& filename) {
 
     vector<Movie> movies;
-
     ifstream in(filename);
-
+ 
     if (!in) {
 
         cerr << "Could not open " << filename << "\n";
+
         return movies;
 
     }
-
+ 
     string line;
     while (getline(in, line) && movies.size() < 100) {
 
-        size_t sep = line.find('|');
-        if (sep == string::npos) continue;
-        movies.push_back({line.substr(0, sep), line.substr(sep + 1)});
+        size_t p1 = line.find('|');
+        size_t p2 = (p1 == string::npos) ? string::npos : line.find('|', p1 + 1);
+        size_t p3 = (p2 == string::npos) ? string::npos : line.find('|', p2 + 1);
+        size_t p4 = (p3 == string::npos) ? string::npos : line.find('|', p3 + 1);
 
+        if (p4 == string::npos) continue; 
+ 
+        try {
+
+            Movie m;
+            m.title    = line.substr(0, p1);
+            m.genre    = line.substr(p1 + 1, p2 - p1 - 1);
+            m.year     = stoi(line.substr(p2 + 1, p3 - p2 - 1));
+            m.duration = stoi(line.substr(p3 + 1, p4 - p3 - 1));
+            m.synopsis = line.substr(p4 + 1);
+            movies.push_back(m);
+
+        } catch (...) {
+
+            continue;  
+
+        }
     }
 
     return movies;
 }
 
+<<<<<<< HEAD
 void searchMovieByName(const vector<Movie>& movies) {
 
     string searchName;
@@ -116,6 +138,9 @@ void searchByGenre(const vector<Movie>& movies) {
     cout << "\nPress Enter to continue...";
     cin.get();
 }
+=======
+
+>>>>>>> origin/main
 
 int main() {
     
