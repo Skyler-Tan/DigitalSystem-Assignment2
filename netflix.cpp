@@ -4,6 +4,8 @@
 #include <string>
 #include <algorithm>
 #include <cctype>
+#include <cstdlib>
+#include <limits>
 using namespace std;
 
 
@@ -27,6 +29,14 @@ string toLowerCase(const string& text) {
         return static_cast<char>(tolower(character));
     });
     return result;
+}
+
+void displayMovie(const Movie& movie) {
+    cout << "Title: " << movie.title << endl;
+    cout << "Genre: " << movie.genre << endl;
+    cout << "Year: " << movie.year << endl;
+    cout << "Duration: " << movie.duration << " minutes" << endl;
+    cout << "Synopsis: " << movie.synopsis << endl;
 }
 
 
@@ -74,7 +84,6 @@ vector<Movie> loadMovies(const string& filename) {
     return movies;
 }
 
-<<<<<<< HEAD
 void searchMovieByName(const vector<Movie>& movies) {
 
     string searchName;
@@ -91,8 +100,7 @@ void searchMovieByName(const vector<Movie>& movies) {
         if (toLowerCase(movie.title) == normalizedSearchName) {
 
             cout << "\nMovie found!\n";
-            cout << "Title: " << movie.title << endl;
-            cout << "Genre: " << movie.genre << endl;
+            displayMovie(movie);
 
             found = true;
             break;
@@ -125,7 +133,8 @@ void searchByGenre(const vector<Movie>& movies) {
 
         if (toLowerCase(movie.genre) == normalizedSearchGenre) {
 
-            cout << movie.title << endl;
+            cout << "\n";
+            displayMovie(movie);
 
             found = true;
         }
@@ -138,9 +147,6 @@ void searchByGenre(const vector<Movie>& movies) {
     cout << "\nPress Enter to continue...";
     cin.get();
 }
-=======
-
->>>>>>> origin/main
 
 int main() {
     
@@ -149,7 +155,6 @@ int main() {
     vector<Movie> movies = loadMovies("movies.txt");
 
     do {
-        clearScreen();
         choice = titleScreen();
 
         //search movie name
@@ -161,15 +166,20 @@ int main() {
             exitScreen();
         } else {
             cout << "Invalid choice. Please try again.\n";
-            cin.ignore();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Press Enter to continue...";
             cin.get();
         }
     } while (choice != 3);
-    }
+    return 0;
+}
 
-// \033[2J clears the screen, \033[H moves the cursor to the top-left (1,1)
 void clearScreen(){
-    cout << "\033[2J\033[H";
+#ifdef _WIN32
+    system("cls");
+#else
+    cout << "\033[2J\033[H";   
+#endif
 }
 
 int titleScreen(){
@@ -181,7 +191,13 @@ int titleScreen(){
     cout << "\t\t\t3. \tExit\n";
     cout << "\n\tEnter your choice: ";
     int choice;
-    cin >> choice;
+    if (!(cin >> choice)) {
+        if (cin.eof()) {
+            return 3;
+        }
+        cin.clear();
+        return 0;
+    }
     return choice;
 }
 void exitScreen(){
