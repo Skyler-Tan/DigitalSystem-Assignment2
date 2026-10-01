@@ -7,6 +7,8 @@ using namespace std;
 struct Movie {
     string title;
     string genre;
+    int year;
+    int duration;
     string synopsis;
 };
 
@@ -24,20 +26,30 @@ vector<Movie> loadMovies(const string& filename) {
     }
  
     string line;
-
     while (getline(in, line) && movies.size() < 100) {
 
-        size_t sep1 = line.find('|');
-        if (sep1 == string::npos) continue;
-        size_t sep2 = line.find('|', sep1 + 1);
-        if (sep2 == string::npos) continue;  
+        size_t p1 = line.find('|');
+        size_t p2 = (p1 == string::npos) ? string::npos : line.find('|', p1 + 1);
+        size_t p3 = (p2 == string::npos) ? string::npos : line.find('|', p2 + 1);
+        size_t p4 = (p3 == string::npos) ? string::npos : line.find('|', p3 + 1);
 
-        movies.push_back({
-            line.substr(0, sep1),
-            line.substr(sep1 + 1, sep2 - sep1 - 1),
-            line.substr(sep2 + 1)
+        if (p4 == string::npos) continue; 
+ 
+        try {
 
-        });
+            Movie m;
+            m.title    = line.substr(0, p1);
+            m.genre    = line.substr(p1 + 1, p2 - p1 - 1);
+            m.year     = stoi(line.substr(p2 + 1, p3 - p2 - 1));
+            m.duration = stoi(line.substr(p3 + 1, p4 - p3 - 1));
+            m.synopsis = line.substr(p4 + 1);
+            movies.push_back(m);
+
+        } catch (...) {
+
+            continue;  
+
+        }
     }
 
     return movies;
