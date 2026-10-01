@@ -7,32 +7,43 @@ using namespace std;
 struct Movie {
     string title;
     string genre;
+    string synopsis;
 };
 
 vector<Movie> loadMovies(const string& filename) {
 
     vector<Movie> movies;
-
     ifstream in(filename);
-
+ 
     if (!in) {
 
         cerr << "Could not open " << filename << "\n";
+
         return movies;
 
     }
-
+ 
     string line;
+
     while (getline(in, line) && movies.size() < 100) {
 
-        size_t sep = line.find('|');
-        if (sep == string::npos) continue;
-        movies.push_back({line.substr(0, sep), line.substr(sep + 1)});
+        size_t sep1 = line.find('|');
+        if (sep1 == string::npos) continue;
+        size_t sep2 = line.find('|', sep1 + 1);
+        if (sep2 == string::npos) continue;  
 
+        movies.push_back({
+            line.substr(0, sep1),
+            line.substr(sep1 + 1, sep2 - sep1 - 1),
+            line.substr(sep2 + 1)
+
+        });
     }
 
     return movies;
 }
+
+
 
 int main() {
     
